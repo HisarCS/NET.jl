@@ -318,7 +318,9 @@ The Euler-Maruyama eqution is the rate of change of the force plus the positon a
 
 ###### Milstein
 
-<img width="730" alt="Ekran Resmi 2024-11-20 12 22 33" src="https://github.com/user-attachments/assets/a27bc5b0-fdd6-4e1d-93a2-1c305354dcba">
+$$
+x_{t+1} = x_t + f(x_t)\Delta t + g(x_t)\sqrt{\Delta t}\xi + \frac{1}{2}g(x_t)g'(x_t)(\xi^2 - 1)\Delta t
+$$
 
 The Milstein equation starts is the Euler Maruyama, but with added noise. In the Milstein equation on addition to the Euler Maruyama Equation the Derivative of the Noise amplitude is added, a higher order contribution of noise occurs making the relationship non-linear. Note that the derivation is based on Ito calculus.
 
@@ -405,7 +407,18 @@ The final output is the probability ratio of forward to reverse work- likelihood
 
 ### Langevin Dynamics
 
-<img width="678" alt="Ekran Resmi 2024-11-21 01 23 54" src="https://github.com/user-attachments/assets/597a6999-fbe4-46b8-b80a-b82018ee5acf">
+**Main Equation:**
+
+$$
+\mathbf{x}_{i+1} = \mathbf{x}_i + \Delta t \cdot \left( \mathbf{v}_{i-1} \cdot e^{-\frac{\gamma \Delta t}{m}} + \frac{\Delta t}{2m} \cdot (-\nabla U(\mathbf{x}_i)) + \eta \right)
+$$
+
+**Noise Equation:**
+
+$$
+\eta = \sigma \cdot \sqrt{1 - e^{-2\frac{\gamma \Delta t}{m}}}
+$$
+
 
 Langevin dynamics is a method in statistical mechanics and thermodynamics used to model the motion of particles in a fluid or heat bath. It combines deterministic forces, such as those arising from a potential field, with stochastic thermal forces to account for the random interactions with the surrounding medium. The dynamics are governed by a balance between inertia, friction, and noise, providing a realistic representation of particle behavior in non-equilibrium systems.
 
