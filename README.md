@@ -300,7 +300,10 @@ In the loop for calculation there are two types SDE's in the loop the Euler Maru
 
 ###### Euler-Maruyama
 
-<img width="720" alt="Ekran Resmi 2024-11-20 12 22 12" src="https://github.com/user-attachments/assets/54f3a953-dcd6-4ce9-86d6-14cf9c124f8a">
+$$
+x_{t+1} = x_t + f(x_t)\,\Delta t + g(x_t)\,\sqrt{\Delta t}\,\xi
+$$
+
 
 The Euler-Maruyama eqution is the rate of change of the force plus the positon at initla time plus the amplitue of the noise times the root of the time times random noise, Wiener process to be spesific, which is a driver in the stohcastic system as well. This equation is more well suited to stohcastic systems with weak noise since non-linear interactions are better captured in Milstein and since in small noises the comptutationally expensive calculation of Milstein aren't necessary the usage of Eular-Maruyama is more pragmatic. Below is the code for Euler Maruyama
 
